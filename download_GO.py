@@ -5,7 +5,8 @@ import pycurl
 url = "https://www.stsci.edu/"
 path = "jwst/phase2-public/"
 
-programs = [p.strip() for p in open('apts/GTO_list.csv','r').readlines()]
+
+programs = [1433]
 
 print(programs)
 
@@ -13,8 +14,8 @@ print(programs)
 for program in programs:
 
     print(program)
-    filename = program+'.aptx'
-    fp = open(f'apts/GTO/{filename}', "wb")
+    filename = str(program)+'.aptx'
+    fp = open(f'apts/GO-1/{filename}', "wb")
     curl = pycurl.Curl()
     curl.setopt(pycurl.URL, url+path+filename)
     curl.setopt(pycurl.WRITEDATA, fp)
